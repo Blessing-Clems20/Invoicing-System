@@ -1,0 +1,137 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  background-color: #F0F8FF;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  width: 100px; 
+  height: auto; 
+  
+}
+
+.reg {
+  display: flex;
+  gap: 20px;
+}
+
+.reg a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.reg a:hover {
+  background-color: #555;
+}
+
+.calculator {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  width: fit-content;
+  /*  */
+}
+
+.page-content{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap:20px ;
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 300px;
+}
+  
+.output {
+  grid-column: span 4;
+  text-align: right;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.previous-operand {
+  font-size: 18px;
+  color: #777;
+}
+
+.current-operand {
+  font-size: 24px;
+}
+
+button {
+  /* width: 100%; */
+  padding: 15px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #fff;
+  text-align: center;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+[data-operation],
+[data-number],
+[data-equals] {
+  background-color: #e0e0e0;
+}
+
+[data-all-clear],
+[data-delete] {
+  background-color: #ff6666;
+  color: #fff;
+}
+
+[data-equals] {
+  background-color: #66cc66;
+  color: #fff;
+}
+
+.invoice-img{
+  width: 50%;
+  display: block;
+  justify-content: center;
+  align-content: center;
+}
+
+.invoice-img img{
+  width: 100%;
+  cursor: pointer;
+}
+

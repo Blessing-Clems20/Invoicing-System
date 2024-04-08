@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printable Invoice</title>
+    <style>
+        /* Add your print styles here */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printableArea, #printableArea * {
+                visibility: visible;
+            }
+            #printableArea {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="printableArea">
+        <h1>Invoice</h1>
+
+        <div id="invoice-details">
+            <div class="row">
+                <strong>Invoice Number:</strong> <span id="printInvoiceNumber"></span>
+            </div>
+            <div class="row">
+                <strong>Invoice Date:</strong> <span id="printInvoiceDate"></span>
+            </div>
+            <div class="row">
+                <strong>Client Name:</strong> <span id="printClientName"></span>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Rate</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="printTableBody">
+            </tbody>
+        </table>
+
+        <div id="invoice-summary">
+            <div class="row">
+                <strong>VAT (7.5%):</strong> <span id="printTaxRate"></span>
+            </div>
+            <div class="row">
+                <strong>Subtotal:</strong> <span id="printSubtotal"></span>
+            </div>
+            <div class="row">
+                <strong>Total:</strong> <span id="printTotal"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let invoiceData = JSON.parse(localStorage.getItem('invoiceData'));                                                  
+
+        document.getElementById('printInvoiceNumber').textContent = invoiceData.invoiceNumber;
+        document.getElementById('printInvoiceDate').textContent = invoiceData.invoiceDate;
+        document.getElementById('printClientName').textContent = invoiceData.clientName;
+        document.getElementById('printTaxRate').textContent = invoiceData.taxRate + '%';
+        document.getElementById('printSubtotal').textContent = '₦' + invoiceData.subtotal;
+        document.getElementById('printTotal').textContent = '₦' + invoiceData.total;
+
+        let printTableBody = document.getElementById('printTableBody');
+        invoiceData.items.forEach(item => {
+            let row = `
+                <tr>
+                    <td>${item.description}</td>
+                    <td>${item.quantity}</td>
+                    <td>${item.rate}</td>
+                    <td>${item.amount}</td>
+                </tr>
+            `;
+            printTableBody.innerHTML += row;
+        });
+
+        window.print();
+    </script>
+
+</body>
+
+</html>

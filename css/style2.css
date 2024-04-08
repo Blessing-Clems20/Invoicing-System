@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/Img/back.png');
+    /* background-size: cover; */
+    background-position: left;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+.logo img {
+    width: 80px;
+    /* Adjust as needed */
+}
+
+.reg {
+    display: flex;
+    gap: 20px;
+}
+
+.reg a {
+    text-decoration: none;
+    color: white;
+}
+
+.calculator {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 300px;
+}
+
+.output {
+    grid-column: span 4;
+    text-align: right;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.previous-operand {
+    font-size: 18px;
+    color: #777;
+}
+
+.current-operand {
+    font-size: 24px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+[data-operation],
+[data-number],
+[data-equals] {
+    background-color: #e0e0e0;
+}
+
+[data-all-clear],
+[data-delete] {
+    background-color: #ff6666;
+    color: #fff;
+}
+
+[data-equals] {
+    background-color: #66cc66;
+    color: #fff;
+}
+
+.invoice-img {
+    text-align: center;
+    padding: 20px;
+}
+
+.invoice-img button {
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+}
+
+.invoice-img button:hover {
+    background-color: #2980b9;
+}
